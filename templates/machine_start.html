@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Machine {{ machine_id }}</title>
+</head>
+<body>
+  <h1>Machine {{ machine_id }}</h1>
+
+  <form method="POST" action="/machine/{{ machine_id }}/start">
+    <label>First name *</label><br>
+    <input name="first_name" value="{{ values.first_name }}" placeholder="Enter first name"><br>
+    {% if errors.first_name %}<div style="color:red">{{ errors.first_name }}</div>{% endif %}
+    <div style="font-size:12px">Nickname allowed</div>
+    <br>
+
+    <label>Last name *</label><br>
+    <input name="last_name" value="{{ values.last_name }}" placeholder="Enter last name"><br>
+    {% if errors.last_name %}<div style="color:red">{{ errors.last_name }}</div>{% endif %}
+    <br>
+
+    <label>Phone number *</label><br>
+    <input name="phone_number" value="{{ values.phone_number }}" placeholder="5551234567"><br>
+    {% if errors.phone_number %}<div style="color:red">{{ errors.phone_number }}</div>{% endif %}
+    <div style="font-size:12px">US only, 10 digits</div>
+    <br><br>
+
+    <button type="submit">Start load</button>
+  </form>
+</body>
+</html>
